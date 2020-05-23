@@ -5,3 +5,9 @@ h1 {
 .book-title {
     background-color: darkorange;
 }
+
+.description {
+    background-color: crimson;
+    font-size: smaller;
+    display: none;
+}
