@@ -4,7 +4,6 @@ $(function(){
     refreshBookList();
 
     function refreshBookList() {
-        getFromServer();
         renderBookList(bookListDiv);
     }
 
