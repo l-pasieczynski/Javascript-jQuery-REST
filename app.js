@@ -119,23 +119,4 @@ $(function () {
         })
     }
 
-    function sendGenericRequest(url, type, data, successHandlerFn) {
-
-        $.ajax({
-            url: url,
-            type: type,
-            data: JSON.stringify(data),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-        }).done(function () {
-            if(successHandlerFn !== undefined){
-                successHandlerFn();
-            }
-
-        }).fail(function (xhr, status, err) {
-            console.log(xhr, status, err);
-        })
-
-    }
-
 });
