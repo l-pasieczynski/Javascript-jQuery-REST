@@ -4,6 +4,7 @@ $(function () {
 
     var bookListDiv = $(".book-list");
     bookListDiv.on("click", ".book-title", handleTitleClick);
+    bookListDiv.on("click", ".delete-book-btn", handleBtnClick);
 
     var addBookForm = $(".add-book-form");
     addBookForm.on("submit", handleAddBookSubmit);
@@ -24,10 +25,13 @@ $(function () {
 
             for (var i = 0; i < booksArr.length; i++) {
                 var book = booksArr[i];
+
                 var descriptionDiv = $('<div class="description">');
+                var delBtn = $('<button class="delete-book-btn">Usuń</button>');
                 var titleDiv = $('<div class="book-title">');
                 titleDiv.text(book.title);
                 titleDiv.data("id", book.id);
+                titleDiv.append(delBtn);
                 titleDiv.append(descriptionDiv);
 
                 renderingPoint.append(titleDiv);
@@ -97,7 +101,22 @@ $(function () {
         });
 
         return false;
+    }
 
+    function handleBtnClick(event) {
+        event.stopPropagation();
+
+        var thisTitle = $(this).parent();
+        var id = thisTitle.data("id");
+
+        $.ajax({
+            url: "http://localhost:8282/books/" + id,
+            type: "DELETE",
+        }).done(function () {
+            refreshBookList();
+        }).fail(function (xhr, status, err) {
+            console.log(xhr, status, err);
+        })
     }
 
 });
