@@ -1,2 +1,2 @@
-# krkjeew04warsztat4
+# kJavascript i jQuery: REST
 frontend to backend
