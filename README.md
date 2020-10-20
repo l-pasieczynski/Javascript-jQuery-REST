@@ -1,2 +1,2 @@
-# kJavascript i jQuery: REST
+# Javascript i jQuery: REST
 frontend to backend
